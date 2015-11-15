@@ -1,0 +1,29 @@
+<?php $_helper = Mage::helper('furnituregallery_productcollections') ?>
+<?php $_products = $_helper->getSaleItems() ?>
+<?php if (count($_products) > 0) : ?>
+    <div class="central-heading">
+        <h2 class="title-section"><span class="top-title"><?php echo $this->__('Quick') ?></span><span class="bottom-title primary"><?php echo $this->__('Sale Items') ?></span></h2>
+    </div>
+<div id="slider-sales" class="owl-carousel owl-theme">
+    <?php foreach ($_products as $_product) : ?>
+    <div class="item">
+        <a href="<?php echo $_product->getProductUrl() ?>">
+            <img src="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->resize(300,300) ?>" alt="<?php echo $_product->getName() ?>">
+            <span class="slide-product-name"><?php echo $_product->getName() ?></span>
+            <span class="savings-home"><?php echo 'Save '.$_helper->getSavings($_product->getFinalPrice(), $_product->getMsrp() ) ?></span>
+        </a>
+    </div>
+    <?php endforeach ?>
+</div>
+<script type="text/javascript">
+    jQuery(document).ready(function($) {
+
+        $("#slider-sales").owlCarousel({
+            items : 3,
+            itemsDesktop : [1199,3],
+            itemsDesktopSmall : [979,3]
+        });
+
+    });
+</script>
+<?php endif ?>

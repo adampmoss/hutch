@@ -1,0 +1,16 @@
+<?php $_product = $this->getProduct() ?>
+<?php $_categoryIds = $this->getCategoryIds($_product) ?>
+<?php if (!empty($_categoryIds)) : ?>
+<div class="central-heading">
+    <h2 class="title-section"><span class="top-title"><?php echo $this->__('View') ?></span><span class="bottom-title"><?php echo $this->__('More') ?></span></h2>
+</div>
+    <ul class="view-more-ranges">
+        <?php foreach ($this->getCategories($_categoryIds) as $_category) : ?>
+            <li class="view-more-item">
+                <a href="<?php echo $_category->getUrl() ?>">
+                    <span class="cat-title"><?php echo implode(" ",$this->formatName($_category->getName())) ?></span>
+                </a>
+            </li>
+        <?php endforeach ?>
+    </ul>
+<?php endif ?>

@@ -1,0 +1,236 @@
+<layout>
+    <default>
+        <remove name="right.poll"/>
+        <remove name="footer_links"/>
+        <remove name="footer_links2"/>
+        <reference name="head">
+            <action method="addCss">
+                <file>css/normalize.css</file>
+            </action>
+            <action method="addCss">
+                <file>css/foundation.min.css</file>
+            </action>
+            <action method="addCss">
+                <file>css/animate.min.css</file>
+            </action>
+            <action method="addCss">
+                <file>css/hover.min.css</file>
+            </action>
+            <action method="addItem">
+                <type>skin_js</type>
+                <file>js/libraries.min.js</file>
+            </action>
+        </reference>
+        <reference name="header">
+            <block name="custom.minicart" template="custom/checkout/minicart.phtml" type="checkout/cart_sidebar"/>
+            <block name="off.canvas.menu" as="offCanvas" template="custom/header/offcanvasmenu.phtml"
+                   type="furnituregallery_customcategories/offcanvas"/>
+        </reference>
+        <reference name="top.links">
+            <remove name="wishlist_link"/>
+        </reference>
+        <reference name="footer">
+            <block name="footer_link_area" type="core/template" template="custom/footer/links.phtml"/>
+        </reference>
+        <reference name="footer.newsletter">
+            <action method="setTemplate">
+                <template>custom/footer/newsletter.phtml</template>
+            </action>
+        </reference>
+    </default>
+    <cms_index_index>
+        <reference name="head">
+            <action method="addCss">
+                <file>css/owl.carousel.css</file>
+            </action>
+            <action method="addItem">
+                <type>skin_js</type>
+                <file>js/owl.carousel.min.js</file>
+            </action>
+        </reference>
+        <reference name="content">
+            <block name="slider" template="custom/homepage/slider.phtml" type="furnituregallery_homepage/slider"/>
+            <block name="newsletter" template="custom/homepage/newsletter.phtml" type="newsletter/subscribe"/>
+            <block name="sale" template="custom/homepage/sale.phtml" type="core/template"/>
+            <block name="steps" template="custom/homepage/steps.phtml" type="core/template"/>
+            <block name="boxes" template="custom/homepage/boxes.phtml" type="furnituregallery_homepage/boxes"/>
+            <block name="favourites" template="custom/homepage/favourites.phtml"
+                   type="furnituregallery_homepage/favourites"/>
+        </reference>
+        <remove name="cms.wrapper"/>
+    </cms_index_index>
+    <catalog_category_default>
+        <reference name="head">
+            <action method="addCss">
+                <file>css/owl.carousel.css</file>
+            </action>
+            <action method="addItem">
+                <type>skin_js</type>
+                <file>js/owl.carousel.min.js</file>
+            </action>
+        </reference>
+        <reference name="root">
+            <action method="setTemplate">
+                <template>page/1column.phtml</template>
+            </action>
+        </reference>
+    </catalog_category_default>
+    <catalog_category_layered>
+        <reference name="root">
+            <action method="setTemplate">
+                <template>page/2columns-left.phtml</template>
+            </action>
+        </reference>
+    </catalog_category_layered>
+    <catalog_product_view>
+        <reference name="head">
+            <action method="addCss">
+                <file>css/owl.carousel.css</file>
+            </action>
+            <action method="addItem">
+                <type>skin_js</type>
+                <file>js/owl.carousel.min.js</file>
+            </action>
+        </reference>
+        <reference name="product.info">
+            <remove name="product.description"/>
+            <remove name="product.attributes"/>
+            <remove name="product.reviews"/>
+            <remove name="product.info.sharing"/>
+            <remove name="product.info.addto"/>
+            <block type="catalog/product_view_description" name="product.information"
+                   template="catalog/product/view/description.phtml">
+                <action method="addToParentGroup">
+                    <group>detailed_info</group>
+                </action>
+                <action method="setTitle" translate="value">
+                    <value>Product Info</value>
+                </action>
+                <block type="catalog/product_view_attributes"
+                       name="attributes.table" template="catalog/product/view/attributes.phtml"/>
+            </block>
+            <block type="furnituregallery_moreinrange/items" name="more.in.range"
+                   template="custom/product/more-in-range.phtml">
+                <action method="addToParentGroup">
+                    <group>detailed_info</group>
+                </action>
+                <action method="setTitle" translate="value">
+                    <value>More From This Range</value>
+                </action>
+            </block>
+            <block type="core/template" name="delivery.info" template="custom/product/delivery.phtml">
+                <action method="addToParentGroup">
+                    <group>detailed_info</group>
+                </action>
+                <action method="setTitle" translate="value">
+                    <value>Delivery &amp; Returns</value>
+                </action>
+            </block>
+            <block type="furnituregallery_attributes/viewmore" name="product.view.more"
+                   template="catalog/product/view/view-more.phtml"/>
+
+            <block type="core/template" name="social_sharing"
+                   template="custom/product/social.phtml"/>
+
+            <block type="core/template" name="dimensions_assembly"
+                   template="custom/product/dimensions-assembly.phtml"/>
+
+            <block type="core/template" name="delivery_message"
+                   template="custom/product/delivery-message.phtml"/>
+
+        </reference>
+    </catalog_product_view>
+    <contacts_index_index>
+        <reference name="root">
+            <action method="setTemplate">
+                <template>page/1column.phtml</template>
+            </action>
+        </reference>
+    </contacts_index_index>
+
+    <quickview_product_index>
+        <update handle="page_empty"/>
+        <remove name="head"/>
+        <reference name="content">
+            <block type="catalog/product_view" name="product.info" template="catalog/product/view.phtml">
+                <block type="catalog/product_view_media" name="product.info.media" as="media" template="catalog/product/view/media.phtml"/>
+                <block type="core/text_list" name="alert.urls" as="alert_urls" translate="label">
+                    <label>Alert Urls</label>
+                </block>
+
+                <block type="core/template" name="social_sharing"
+                       template="custom/product/social.phtml"/>
+
+                <block type="core/template" name="dimensions_assembly"
+                       template="custom/product/dimensions-assembly.phtml"/>
+
+                <block type="core/template" name="delivery_message"
+                       template="custom/product/delivery-message.phtml"/>
+
+                <action method="setTierPriceTemplate"><template>catalog/product/view/tierprices.phtml</template></action>
+
+                <block type="catalog/product_list_upsell" name="product.info.upsell" as="upsell_products" template="catalog/product/list/upsell.phtml">
+                    <action method="setColumnCount"><columns>4</columns></action>
+                    <action method="setItemLimit"><type>upsell</type><limit>4</limit></action>
+                </block>
+
+
+
+
+                <block type="catalog/product_view" name="product.info.addto" as="addto" template="catalog/product/view/addto.phtml"/>
+                <block type="catalog/product_view" name="product.info.addtocart" as="addtocart" template="catalog/product/view/addtocart.phtml"/>
+
+                <block type="core/text_list" name="product.info.extrahint" as="extrahint" translate="label">
+                    <label>Product View Extra Hint</label>
+                </block>
+
+                <block type="catalog/product_view" name="product.info.options.wrapper" as="product_options_wrapper" template="catalog/product/view/options/wrapper.phtml" translate="label">
+                    <label>Info Column Options Wrapper</label>
+                    <block type="core/template" name="options_js" template="catalog/product/view/options/js.phtml"/>
+                    <block type="catalog/product_view_options" name="product.info.options" as="product_options" template="catalog/product/view/options.phtml">
+                        <action method="addOptionRenderer"><type>text</type><block>catalog/product_view_options_type_text</block><template>catalog/product/view/options/type/text.phtml</template></action>
+                        <action method="addOptionRenderer"><type>file</type><block>catalog/product_view_options_type_file</block><template>catalog/product/view/options/type/file.phtml</template></action>
+                        <action method="addOptionRenderer"><type>select</type><block>catalog/product_view_options_type_select</block><template>catalog/product/view/options/type/select.phtml</template></action>
+                        <action method="addOptionRenderer"><type>date</type><block>catalog/product_view_options_type_date</block><template>catalog/product/view/options/type/date.phtml</template></action>
+                    </block>
+                    <block type="core/html_calendar" name="html_calendar" as="html_calendar" template="page/js/calendar.phtml"/>
+                </block>
+                <block type="catalog/product_view" name="product.info.options.wrapper.bottom" as="product_options_wrapper_bottom" template="catalog/product/view/options/wrapper/bottom.phtml" translate="label">
+                    <label>Bottom Block Options Wrapper</label>
+                    <action method="insert"><block>product.tierprices</block></action>
+                    <block type="catalog/product_view" name="product.clone_prices" as="prices" template="catalog/product/view/price_clone.phtml"/>
+                    <action method="append"><block>product.info.addtocart</block></action>
+                    <action method="append"><block>product.info.addto</block></action>
+                </block>
+
+                <block type="core/template_facade" name="product.info.container1" as="container1">
+                    <action method="setDataByKey"><key>alias_in_layout</key><value>container1</value></action>
+                    <action method="setDataByKeyFromRegistry"><key>options_container</key><key_in_registry>product</key_in_registry></action>
+                    <action method="append"><block>product.info.options.wrapper</block></action>
+                    <action method="append"><block>product.info.options.wrapper.bottom</block></action>
+                </block>
+                <block type="core/template_facade" name="product.info.container2" as="container2">
+                    <action method="setDataByKey"><key>alias_in_layout</key><value>container2</value></action>
+                    <action method="setDataByKeyFromRegistry"><key>options_container</key><key_in_registry>product</key_in_registry></action>
+                    <action method="append"><block>product.info.options.wrapper</block></action>
+                    <action method="append"><block>product.info.options.wrapper.bottom</block></action>
+                </block>
+                <action method="unsetCallChild"><child>container1</child><call>ifEquals</call><if>0</if><key>alias_in_layout</key><key>options_container</key></action>
+                <action method="unsetCallChild"><child>container2</child><call>ifEquals</call><if>0</if><key>alias_in_layout</key><key>options_container</key></action>
+            </block>
+            <remove name="product.information" />
+            <remove name="attributes.table"/>
+        </reference>
+    </quickview_product_index>
+    <opc_index_index>
+        <reference name="header">
+            <action method="setTemplate"><template>custom/header/checkout.phtml</template></action>
+        </reference>
+        <reference name="content">
+            <block name="shipping.recommendation" type="core/template"
+                   template="custom/checkout/delivery-message.phtml" before="-" />
+        </reference>
+        <remove name="footer.newsletter"/>
+        <remove name="footer_link_area"/>
+    </opc_index_index>
+</layout>

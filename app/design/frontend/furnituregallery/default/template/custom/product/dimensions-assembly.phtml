@@ -1,0 +1,28 @@
+<?php $_product = Mage::registry('current_product') ?>
+<?php $_dimensions = array(
+    'w' => $_product->getWidth(),
+    'h' => $_product->getHeight(),
+    'd' => $_product->getDepth()) ?>
+<?php $_dimensions = array_filter($_dimensions) ?>
+
+<p class="range product-key-info">
+    <i class="fa fa-tag"></i><span class="detail"><?php echo $_product->getAttributeText('range') ?></span>
+</p>
+
+<?php if (!empty($_dimensions)) : ?>
+    <p class="dimensions product-key-info">
+        <i class="fa fa-arrows-h"></i>
+        <span class="detail">
+            <?php foreach ($_dimensions as $_dimension => $_value) : ?>
+                <?php if (!empty($_value)) : ?>
+                    <?php echo $_value ?><span class="unit">mm</span> (<?php echo $_dimension ?>)
+                <?php endif ?>
+            <?php endforeach ?>
+        </span>
+    </p>
+<?php endif ?>
+<?php if ($_product->getData('assembly')) : ?>
+    <p class="assembly product-key-info">
+        <i class="fa fa-wrench"></i><span class="detail"><?php echo $_product->getAttributeText('assembly');
+            ?></span></p>
+<?php endif ?>

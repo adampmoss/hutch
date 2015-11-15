@@ -1,0 +1,33 @@
+<?php $_slides = $this->getSlides() ?>
+<?php $media_url = Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA) ?>
+<?php if (count($_slides)) : ?>
+    <div id="slider-main" class="owl-carousel owl-theme">
+        <?php foreach ($_slides as $_slide) : ?>
+            <div class="item">
+                <?php if (!empty($_slide['link'])) : ?>
+                <a href="<?php echo $this->getUrl($_slide['link']) ?>">
+                    <?php endif ?>
+                    <img src="<?php echo $media_url.DS.'theme'.DS.$_slide['image'] ?>"/>
+                    <?php if (!empty($_slide['link'])) : ?>
+                    <?php if (!empty($_slide['text'])) : ?>
+                        <div class="slider-text">
+                            <?php echo $_slide['text'] ?>
+                        </div>
+                    <?php endif ?>
+                </a>
+            <?php endif ?>
+            </div>
+        <?php endforeach ?>
+    </div>
+    <script type="text/javascript">
+        jQuery(document).ready(function($) {
+
+            $("#slider-main").owlCarousel({
+                slideSpeed : 300,
+                paginationSpeed : 400,
+                singleItem:true
+            });
+
+        });
+    </script>
+<?php endif ?>

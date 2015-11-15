@@ -1,0 +1,10 @@
+<?php $_helper = Mage::helper('furnituregallery_shippingmessages') ?>
+<?php if ($_helper->checkAnyItemsWeightOver50kg()) : ?>
+    <ul class="messages">
+        <li class="notice-msg">
+            <ul>
+                <li><span><?php echo $this->__('You have items over 50kg in your basket. 2-man delivery is recommended') ?></span></li>
+            </ul>
+        </li>
+    </ul>
+<?php endif ?>

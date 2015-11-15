@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="MagicentoSettings">
+    <option name="pathToMage" value="$PROJECT_DIR$/app/Mage.php" />
+    <option name="pathToMagentoForNewFiles" value="$PROJECT_DIR$" />
+    <option name="pathToMage" value="$PROJECT_DIR$/app/Mage.php" />
+    <option name="rewriteConflicts" value="paypal/config (IWD_All_Model_Paypal_Config | IWD_Opc_Model_Paypal_Config), sitemap/sitemap (Creare_CreareSeoCore_Model_Sitemap_Sitemap | Fishpig_Wordpress_Model_Sitemap_Sitemap), braintree_payments/paymentmethod (IWD_All_Model_Braintree_Paymentmethod | IWD_Opc_Model_Braintree_Paymentmethod)" />
+    <option name="pathsToMagentoSerialized" value="$PROJECT_DIR$" />
+    <option name="pathToMagentoForNewFiles" value="$PROJECT_DIR$" />
+    <option name="modmanProjectChecked" value="true" />
+  </component>
+</project>

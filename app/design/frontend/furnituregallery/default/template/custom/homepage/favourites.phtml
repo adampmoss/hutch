@@ -1,0 +1,25 @@
+<?php $_favourites = $this->getFavourites() ?>
+<?php $media_url = Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA) ?>
+<?php $_i = 1 ?>
+<?php if (count($_favourites)) : ?>
+    <div class="central-heading">
+        <h2 class="title-section"><span class="top-title"><?php echo $this->__('Our') ?></span><span class="bottom-title"><?php echo $this->__('Favourites this Month') ?></span></h2>
+    </div>
+    <div class="hp-boxes">
+        <?php foreach ($_favourites as $_favourite) : ?>
+            <div class="hp-box column_<?php echo $_i ?>">
+                <?php if (!empty($_favourite['link'])) : ?>
+                <a href="<?php echo $this->getUrl($_favourite['link']) ?>">
+                    <?php endif ?>
+                    <?php if (!empty($_favourite['text'])) : ?>
+                        <span class="box-text"><?php echo $_favourite['text'] ?></span>
+                    <?php endif ?>
+                    <img src="<?php echo $media_url.DS.'theme'.DS.$_favourite['image'] ?>"/>
+                    <?php if (!empty($_favourite['link'])) : ?>
+                </a>
+            <?php endif ?>
+            </div>
+            <?php if ($_i === 3) { $_i = 1; } else { $_i++; } ?>
+        <?php endforeach ?>
+    </div>
+<?php endif ?>

@@ -1,0 +1,85 @@
+@mixin box-padding($value:25px) {
+  padding:$value;
+}
+
+@mixin button($background, $text, $border, $hover-bg) {
+  font-family: $f-stack-sans;
+  color:$text;
+  border:1px solid $border;
+  background: $background;
+
+  &:hover {
+    background: $hover-bg;
+  }
+}
+
+@mixin full-width-item()
+{
+  display:block;
+  width: 100%;
+  margin-top: $box-spacing;
+}
+
+@mixin centralised-heading()
+{
+  position:relative;
+  text-align:center;
+  clear: both;
+
+  &:before {
+    width: 100%;
+    height: 1px;
+    background: #333;
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0;
+  }
+
+  h1 {
+    margin: 0;
+    padding:30px;
+  }
+
+  .title-section, h1 {
+    text-align: center;
+    text-transform: uppercase;
+    position: relative;
+    display: inline-block;
+    background: $c-white;
+
+    .top-title {
+      font-size: $f-size-s;
+      padding-bottom: 0;
+    }
+    .bottom-title {
+      font-size: $f-size-xxl;
+      padding-top: 0;
+      &.primary {
+        color: $primary-colour;
+      }
+    }
+
+    span {
+      display: block;
+      padding: 10px;
+    }
+  }
+}
+
+@mixin circle($diameter)
+{
+  border-radius: 50%;
+  width:$diameter;
+  height:$diameter;
+  display: block;
+  line-height: $diameter;
+}
+
+@mixin footer_link()
+{
+  display: block;
+  padding: 0 7px;
+  color: $grey-dark;
+  position: relative;
+}

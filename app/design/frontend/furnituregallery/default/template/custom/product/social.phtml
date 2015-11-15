@@ -1,0 +1,34 @@
+<!-- Social Media Icons -->
+<?php $_product = Mage::registry('current_product') ?>
+<div class="product-social">
+    <ul>
+        <li><a class="social-share hvr-grow popup" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=<?php echo $_product->getUrl() ?>"><i class="fa fa-facebook"></i></a></li>
+        <li>
+            <a href="http://twitter.com/intent/tweet?status=<?php echo $_product->getName() ?>+<?php echo $_product->getUrl() ?>" class="social-share hvr-grow popup" target="_blank"><i class="fa fa-twitter"></i></a></li>
+        <li><a class="social-share hvr-grow popup" target="_blank" href="http://pinterest.com/pin/create/link/?media=<?php echo Mage::helper('catalog/image')->init($_product, 'image') ?>&url=<?php echo $_product->getUrl() ?>&description=<?php echo $_product->getName() ?>"><i class="fa fa-pinterest"></i></a></li>
+        <li><a class="hvr-grow" href="<?php echo $this->helper('catalog/product')->getEmailToFriendUrl($_product) ?>"><i class="fa fa-paper-plane"></i></a></li>
+        <li><a class="hvr-grow" href="javascript:window.print()"><i class="fa fa-print"></i></a></li>
+    </ul>
+</div>
+<script>
+    $j(document).ready(function() {
+        $j('.popup').click(function(event) {
+
+            event.preventDefault();
+            var width  = 575,
+                height = 400,
+                left   = ($j(window).width()  - width)  / 2,
+                top    = ($j(window).height() - height) / 2,
+                url    = this.href,
+                opts   = 'status=1' +
+                    ',width='  + width  +
+                    ',height=' + height +
+                    ',top='    + top    +
+                    ',left='   + left;
+
+            window.open(url, 'share', opts);
+
+            return false;
+        });
+    });
+</script>

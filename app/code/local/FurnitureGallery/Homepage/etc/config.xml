@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <FurnitureGallery_Homepage>
+            <version>0.1.0</version>
+        </FurnitureGallery_Homepage>
+    </modules>
+    <global>
+        <models>
+            <furnituregallery_homepage>
+                <class>FurnitureGallery_Homepage_Model</class>
+                <resourceModel>furnituregallery_homepage_resource</resourceModel>
+            </furnituregallery_homepage>
+            <furnituregallery_homepage_resource>
+                <class>FurnitureGallery_Homepage_Model_Resource</class>
+            </furnituregallery_homepage_resource>
+        </models>
+        <blocks>
+            <furnituregallery_homepage>
+                <class>FurnitureGallery_Homepage_Block</class>
+            </furnituregallery_homepage>
+        </blocks>
+        <helpers>
+            <furnituregallery_homepage>
+                <class>FurnitureGallery_Homepage_Helper</class>
+            </furnituregallery_homepage>
+        </helpers>
+    </global>
+</config>

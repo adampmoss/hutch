@@ -1,0 +1,25 @@
+<?php
+
+$_cartQty = $this->getSummaryCount();
+$_subtotalInclTax = $this->getSubtotalInclTax();
+$_cartUrl = $this->getUrl('checkout/cart');
+?>
+    <div class="block block-cart">
+        <div class="block-content">
+                <div class="summary">
+                    <button type="button" title="<?php echo Mage::helper('core')->quoteEscape($this->__('Checkout')) ?>" class="button" onclick="setLocation('<?php echo $this->getCheckoutUrl() ?>')"><span><span><?php echo $this->__('Checkout') ?></span></span></button>
+                    <div class="amount">
+                        <?php echo $this->__('Your bag') ?><br />
+                        <?php if ($_cartQty > 0 ) : ?>
+                            <?php if ($_cartQty==1): ?>
+                                <?php echo $this->__('<a href="%s">1</a> item', $_cartUrl) ?>
+                            <?php else: ?>
+                                <?php echo $this->__('<a href="%s">%s</a> items', $_cartUrl, $_cartQty) ?>
+                            <?php endif ?>
+                        <?php else : ?>
+                            <?php echo $this->__('<a href="%s">0</a> items', $_cartUrl, $_cartQty) ?>
+                        <?php endif ?>
+                        <a href="<?php echo $this->getUrl('checkout/cart') ?>"><?php echo Mage::helper('checkout')->formatPrice($this->getSubtotal()) ?></a></div>
+                </div>
+        </div>
+    </div>

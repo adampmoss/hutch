@@ -1,0 +1,38 @@
+<div class="footer-links">
+    <ul class="clearfix">
+        <li class="clearfix"><a class="parent-link" href="<?php echo $this->getBaseUrl() ?>"><?php echo $this->__('Shopping With Us')
+                ?></a>
+            <ul class="sub-links">
+                <li><a href="#">Test</a></li>
+                <li><a href="#">Test</a></li>
+            </ul>
+        </li>
+        <li class="clearfix"><a class="parent-link" href="<?php echo $this->getUrl('about') ?>"><?php echo $this->__('About Us')
+                ?></a>
+            <ul class="sub-links">
+                <li><a href="#">Test</a></li>
+                <li><a href="#">Test</a></li>
+            </ul></li>
+        <li class="last clearfix"><a class="parent-link" href="<?php echo $this->getUrl('contacts') ?>"><?php echo $this->__('Contact Us') ?></a>
+            <ul class="sub-links">
+                <li><a href="#">Test</a></li>
+                <li><a href="#">Test</a></li>
+            </ul>
+        </li>
+    </ul>
+</div>
+<script>
+
+    $j(".parent-link").hover(function(){
+        $j(this).parent().find('.sub-links').show();
+    },function(){
+        $j(this).parent().find('.sub-links').hide();
+    });
+
+    $j(".sub-links").hover(function(){
+        $j(this).show();
+    },function(){
+        $j(this).hide();
+    });
+
+</script>

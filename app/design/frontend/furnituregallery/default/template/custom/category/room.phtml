@@ -1,0 +1,50 @@
+<?php $_currentCategory = $this->getCurrentCategory() ?>
+<?php $_subcategories = $this->getSubCategories($_currentCategory) ?>
+<?php if (count($_subcategories) > 0) : ?>
+<ul class="subcategories">
+    <?php foreach ($_subcategories as $_category) : ?>
+        <li>
+            <a href="<?php echo $_category->getUrl() ?>">
+                    <?php if ($_imageUrl = $this->getImage($_category->getImage())) : ?>
+                        <div>
+                            <img src="<?php echo $_imageUrl ?>" />
+                        </div>
+                    <?php endif ?>
+                <?php echo $_category->getName() ?></a></li>
+    <?php endforeach ?>
+</ul>
+<?php endif ?>
+<?php $_featuredRanges = $this->getFeaturedRanges() ?>
+<?php if (count($_featuredRanges) > 0) : ?>
+    <div class="central-heading">
+        <h2 class="title-section"><span class="top-title"><?php echo $this->__('Featured') ?></span><span class="bottom-title"><?php echo $_currentCategory->getName() ?> <?php if (!strpos($_currentCategory->getName(), $this->__('Ranges'))) { echo $this->__('Ranges'); }  ?></span></h2>
+    </div>
+    <ul class="featured-ranges">
+    <?php foreach ($_featuredRanges as $_range) : ?>
+        <?php if ($_range->getImage()) : ?>
+            <li>
+                <a href="<?php echo $_range->getUrl() ?>">
+                    <span class="range-name"><?php echo $_range->getName() ?></span>
+                    <?php $_lowestPrice = $this->helper()->getCategoryLowestPrice($_range) ?>
+                    <?php if ($_lowestPrice) : ?>
+                    <span class="lowest-price"><?php echo $this->__('From %s', $_lowestPrice) ?></span><?php endif ?>
+                    <img src="<?php echo $this->helper()->resizeCategoryImage($_range->getImage(), 770) ?>"/>
+                </a>
+            </li>
+        <?php endif ?>
+    <?php endforeach ?>
+    </ul>
+    <script type="text/javascript">
+        jQuery(document).ready(function($) {
+
+            $(".featured-ranges").owlCarousel({
+                items : 2,
+                itemsMobile : [479, 1],
+                itemsTablet : [770,1],
+                itemsDesktopSmall : [979,2],
+                itemsDesktop : [1199,2],
+            });
+
+        });
+    </script>
+<?php endif ?>

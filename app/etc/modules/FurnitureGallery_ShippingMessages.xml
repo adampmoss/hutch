@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <FurnitureGallery_ShippingMessages>
+            <active>true</active>
+            <codePool>local</codePool>
+        </FurnitureGallery_ShippingMessages>
+    </modules>
+</config>

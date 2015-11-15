@@ -1,0 +1,5 @@
+<?php $_helper = $this->helper('furnituregallery_shippingmessages'); ?>
+<?php $_product = Mage::registry('current_product') ?>
+<?php if ($_helper->isProductOver50kg($_product)) : ?>
+    <p><?php echo $this->__('2-Man Delivery Recommended') ?></p>
+<?php endif ?>

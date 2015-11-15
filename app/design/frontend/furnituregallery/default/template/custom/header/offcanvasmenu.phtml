@@ -1,0 +1,38 @@
+<?php
+/**
+ * Off Canvas menu for store
+ *
+ * @see FurnitureGallery_CustomCategories_Block_Offcanvas
+ */
+?>
+
+<?php $_menu = $this->getHtml() ?>
+
+<?php if($_menu): ?>
+    <nav class="tab-bar left-off-canvas-toggle" data-topbar>
+        <section class="left-small">
+            <a class="menu-icon" ><span></span></a>
+        </section>
+        <section class="right tab-bar-section"><?php echo $this->__('Browse Categories') ?></section>
+    </nav>
+    <script>
+        jQuery(document).foundation({
+            offcanvas : {
+                open_method: 'move',
+                close_on_click : false
+            }
+        });
+    </script>
+    <aside class="left-off-canvas-menu">
+        <ul class="off-canvas-list">
+            <li><label><?php echo $this->__('Categories') ?></label></li>
+            <?php echo $_menu ?>
+        </ul>
+    </aside>
+    <div class="exit-off-canvas"></div>
+    <script>
+        $j(document).foundation();
+            $j('.left-off-canvas-toggle a').on('click',function(){}
+            );
+    </script>
+<?php endif ?>

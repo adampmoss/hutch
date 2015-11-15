@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <FurnitureGallery_MoreInRange>
+            <version>0.1.0</version>
+        </FurnitureGallery_MoreInRange>
+    </modules>
+    <global>
+        <blocks>
+            <furnituregallery_moreinrange>
+                <class>FurnitureGallery_MoreInRange_Block</class>
+            </furnituregallery_moreinrange>
+        </blocks>
+        <helpers>
+            <furnituregallery_moreinrange>
+                <class>FurnitureGallery_MoreInRange_Helper</class>
+            </furnituregallery_moreinrange>
+        </helpers>
+        <resources>
+            <furnituregallery_moreinrange_setup>
+                <setup>
+                    <module>FurnitureGallery_MoreInRange</module>
+                </setup>
+            </furnituregallery_moreinrange_setup>
+        </resources>
+    </global>
+</config>

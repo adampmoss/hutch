@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <FurnitureGallery_ShippingMessages>
+            <version>0.1.0</version>
+        </FurnitureGallery_ShippingMessages>
+    </modules>
+    <global>
+        <models>
+            <furnituregallery_shippingmessages>
+                <class>FurnitureGallery_ShippingMessages_Model</class>
+                <resourceModel>furnituregallery_shippingmessages_resource</resourceModel>
+            </furnituregallery_shippingmessages>
+            <furnituregallery_shippingmessages_resource>
+                <class>FurnitureGallery_ShippingMessages_Model_Resource</class>
+            </furnituregallery_shippingmessages_resource>
+        </models>
+        <blocks>
+            <furnituregallery_shippingmessages>
+                <class>FurnitureGallery_ShippingMessages_Block</class>
+            </furnituregallery_shippingmessages>
+        </blocks>
+        <helpers>
+            <furnituregallery_shippingmessages>
+                <class>FurnitureGallery_ShippingMessages_Helper</class>
+            </furnituregallery_shippingmessages>
+        </helpers>
+    </global>
+</config>

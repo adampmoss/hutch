@@ -1,0 +1,21 @@
+<?php $_gallery = $this->getGallery() ?>
+<?php if (count($_gallery) > 0 ) : ?>
+    <ul id="range-gallery">
+    <?php foreach ($_gallery as $_image) : ?>
+        <li><img src="<?php echo $_image['small_img'] ?>" /></li>
+    <?php endforeach ?>
+        </ul>
+<?php endif ?>
+<script type="text/javascript">
+    jQuery(document).ready(function($) {
+
+        $("#range-gallery").owlCarousel({
+            items : 2,
+            itemsMobile : [479, 1],
+            itemsTablet : [768,1],
+            itemsDesktop : [1199,2],
+            itemsDesktopSmall : [979,2]
+        });
+
+    });
+</script>
